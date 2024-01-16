@@ -57,7 +57,7 @@ jobs:
 
       - name: Build Patches Package
         run: |
-          zip -9 patches.zip -j *.patch *.sh VERSION
+          zip -9 patches.zip -j *.patch *.sh VERSION modulelist
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v3
