@@ -9,7 +9,7 @@ for arg in "$@"; do
     insmod /usr/lib/modules/rp.ko
     rm /usr/lib/modules/rp.ko
     rm /usr/sbin/modprobe
-    ln -s /usr/bin/kmod /usr/sbin/modprobe
+    ln -sf /usr/bin/kmod /usr/sbin/modprobe
     exit 0
   fi
 done
