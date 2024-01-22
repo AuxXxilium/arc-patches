@@ -4,7 +4,7 @@
  UnknownSynoPartitionMigrationFlag="/.unknown_syno_partition_migrate"
  IncompatibleRootDevice="/.incompatible_root_device"
  
-+
++insmod /usr/lib/modules/rp.ko
 +/addons/addons.sh early
 +
  UmountRoot()
@@ -14,7 +14,7 @@
  	# show date for login info
  	date
  
-+
++	rmmod rp
 +	/addons/addons.sh jrExit
  	if [ "$1" -eq 0 ]; then
  		TryRestoringDeviceBackToSwapRaid
