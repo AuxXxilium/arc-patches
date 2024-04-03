@@ -68,12 +68,12 @@ jobs:
             patches.zip
 
       - name: Release
-        uses: softprops/action-gh-release@v1
         if: success() && env.VERSION != ''
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ env.VERSION }}
+          tag: ${{ env.VERSION }}
           prerelease: ${{ inputs.prerelease }}
           body: |
             ${{ steps.Changelog.outputs.changelog }}
-          files: |
+          artifacts: |
             patches.zip
