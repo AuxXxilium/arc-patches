@@ -58,6 +58,7 @@ jobs:
       - name: Build Patches Package
         run: |
           zip -9 patches.zip -j *.patch *.sh VERSION modulelist
+          sha256sum patches.zip >checksum.sha256
 
       - name: Upload to Artifacts
         if: success() && env.VERSION == ''
@@ -66,6 +67,7 @@ jobs:
           name: patches
           path: |
             patches.zip
+            checksum.sha256
 
       - name: Release
         if: success() && env.VERSION != ''
@@ -78,3 +80,4 @@ jobs:
             ${{ steps.Changelog.outputs.changelog }}
           artifacts: |
             patches.zip
+            checksum.sha256
