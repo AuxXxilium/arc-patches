@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "format %y.%m.$d or auto"
+        description: "version"
         required: false
         type: string
       latest:
@@ -56,7 +56,7 @@ jobs:
 
       - name: Build Patches Package
         run: |
-          zip -9 patches.zip -j *.patch *.sh VERSION modulelist
+          zip -9j patches.zip -j *.patch *.sh VERSION modulelist
           sha256sum patches.zip >checksum.sha256
 
       - name: Upload to Artifacts
