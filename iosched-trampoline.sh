@@ -8,8 +8,8 @@
 
 for arg in "$@"; do
   if [ "${arg}" = "elevator-iosched" ]; then
-    insmod /usr/lib/modules/rp.ko
-    rm /usr/lib/modules/rp.ko
+    insmod /usr/lib/modules/redpill.ko
+    rm /usr/lib/modules/redpill.ko
     rm /usr/sbin/modprobe
     ln -sf /usr/bin/kmod /usr/sbin/modprobe
     exit 0
